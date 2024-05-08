@@ -1,13 +1,18 @@
 class Enemy:
-    def __init__(self, name):
+    def __init__(self, name, hp=100, att=10):
         self.name = name
-        self.health = 100
-        self.attack = 10
+        self.health = hp
+        self.attack = att
 
     def take_damage(self, damage):  # Дописать и использовать
         self.health -= damage
         if self.health < 0:
             self.health = 0
+
+
+class Clot(Enemy("Сlot", 15, 1)):
+    def main(self):
+        pass
 
 
 class Player:
@@ -42,7 +47,7 @@ class Player:
 class Master:
 
     @staticmethod
-    def fight(player: Player, enemy: Enemy):
+    def fight(player: Player, enemy: Enemy):  # Здесь какая-то ошибка...
         tick = 2
         while tick != 0:
             if player.health > 0 and enemy.health > 0:
@@ -79,6 +84,6 @@ class Master:
 
 
 player1 = Player("Маникен")
-enemy1 = Enemy("Тестовый враг")
+enemy1 = Clot
 master = Master
 master.fight(player1, enemy1)
