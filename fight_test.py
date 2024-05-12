@@ -17,18 +17,16 @@ class Location:  # Сделать, доработать
 class Enemy:
     def __init__(self, name):
         self.name = name
-        
+
     def take_damage(self, damage):
-        self.health -= damage
-        if self.health < 0:
-            self.health = 0
+        self.health = max(self.health - damage, 0)
 
 
 class Clot(Enemy):
-    def __init__(self, hp=50, att=5):
+    def __init__(self, hp=50, atk=5):
         super().__init__("Сlot")
         self.health = hp
-        self.attack = att
+        self.attack = atk
 
     def main(self):
         pass
@@ -41,8 +39,7 @@ class Player:
         self.attack = 15
 
     def take_damage(self, damage):
-        self.health -= damage
-
+        self.health = max(self.health - damage, 0)
 
 
 class Master:
@@ -68,13 +65,13 @@ class Master:
                 tick += 1
             else:
                 if player.health <= 0:
-                    print("Поражение маникена")
+                    print("Поражение манекена")
                 elif enemy.health <= 0:
                     print("Противник погиб")
                 tick = 0
 
 
-player1 = Player("Маникен")
+player1 = Player("Манекен")
 enemy1 = Clot()
 master = Master()
 print(enemy1.name)
