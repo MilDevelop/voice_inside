@@ -1,5 +1,5 @@
-import logging
-logging.basicConfig(level=logging.DEBUG)
+import logger
+
 # Сделать логирование
 
 
@@ -48,8 +48,8 @@ class Master:
     def fight(player: Player, enemy: Enemy):
         tick = 2
         while tick != 0:
-            logging.debug(f"Здоровье врага: {enemy.health}")
-            logging.debug(f"Здоровье игрока: {player.health}")
+            logger.debug(f"Здоровье врага: {enemy.health}")
+            logger.debug(f"Здоровье игрока: {player.health}")
             if player.health > 0 and enemy.health > 0:
                 if tick % 2 == 0:
                     print("Выберите действие:", "1) Атака", "2) Ничего", sep='\n')
