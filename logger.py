@@ -6,5 +6,5 @@ def debug(msg, comment=""):
 def error(msg, comment=""):
     print(colored('ERROR', 'red'), colored(comment, 'red'), msg)
 
-def warning(msg, comment=""):
+def worning(msg, comment=""):
     print(colored('WORNING', 'yellow'), colored(comment, 'yellow'), msg)
